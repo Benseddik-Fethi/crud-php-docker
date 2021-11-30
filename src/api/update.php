@@ -14,12 +14,11 @@ $db = $database->getConnection();
 $id = $_POST["id"];
 $item = new User($db);
 
-
 $item->id = $id;
 $item->nom = $_POST["nom"];
 $item->prenom = $_POST["prenom"];
 $item->email =$_POST["email"];
-console_log($item);
+
 
 if($item->updateUser()){
     echo json_encode("Utilisateur data updated.");
@@ -27,8 +26,3 @@ if($item->updateUser()){
     echo json_encode("Data could not be updated");
 }
 
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-}
