@@ -19,6 +19,7 @@ $(document).ready(function () {
             }
         })
     }
+
     getall();
     $('#tbody').on("click", ".btn-edit", function () {
         $('#editModal').show();
@@ -28,6 +29,10 @@ $(document).ready(function () {
         $(" #lname").val(studentList[index]["prenom"]);
         $(" #email").val(studentList[index]["email"]);
         $(" #sid").val(studentList[index]["id"]);
+        $('html, body').animate({
+                scrollTop: '0px'
+            },
+            1500);
     });
 
 
@@ -66,7 +71,7 @@ $(document).ready(function () {
             })
         }
     });
-    
+
 // Close edit Modal
     $("#emodalbutton").click(function () {
         $('#editModal').hide();
