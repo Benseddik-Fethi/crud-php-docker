@@ -95,7 +95,7 @@ $(document).ready(function () {
     $('#btnsave').click(function () {
         let fn = $('#fname').val();
         let ln = $('#lname').val();
-        let co = $('#email').val();
+        let email = $('#email').val();
         if (fn === "") {
             $('#fnameModal').show();
             $("#fmodalbutton").click(function () {
@@ -106,13 +106,13 @@ $(document).ready(function () {
             $("#lmodalbutton").click(function () {
                 $('#lnameModal').hide();
             });
-        } else if (co === "") {
+        } else if (email === "") {
             $('#cnameModal').show();
             $("#cmodalbutton").click(function () {
                 $('#cnameModal').hide();
             });
         } else {
-            let data = {nom: fn, prenom: ln, email: co};
+            let data = {nom: fn, prenom: ln, email: email};
             $.ajax({
                 url: "http://localhost/api/create.php",
                 method: "POST",

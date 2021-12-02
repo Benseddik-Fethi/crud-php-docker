@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <title>TechSky</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -8,47 +8,41 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style/index.css">
-
 </head>
+
 <body>
 <div class="container-fluid">
     <h1 class="text-center alert alert-danger">PHP Ajax CRUD Application</h1>
     <div class="row">
-
         <div class="col-sm-4">
             <h4 class="text-center alert alert-info">Ajout Utilisateur</h4>
-
             <form method="POST">
                 <input type="hidden" name="" value="" class="sid" id="sid">
-                <input type="hidden" id="studi" name="stuid" />
+                <input type="hidden" id="studi" name="stuid"/>
                 <div class="form-group">
-                    <label >Nom</label>
+                    <label for="fname">Nom</label>
                     <input type="text" class="form-control" required="" id="fname">
                 </div>
 
                 <div class="form-group">
-                    <label >Prenom</label>
+                    <label for="lname">Prenom</label>
                     <input type="text" class="form-control" required="" id="lname">
                 </div>
                 <div class="form-group">
-                    <label >Email</label>
+                    <label for="email">Email</label>
                     <input type="text" class="form-control" required="" id="email">
                 </div>
                 <button type="button" class="btn btn-primary" id="btnsave">Save</button>
-                <div  id="editModal">
+                <div id="editModal">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="emodalbutton">Close</button>
                     <input type="button" value="Save" class="btn btn-success save-student" id="submit">
                 </div>
             </form>
-
-
-
         </div>
-
         <div class="col-sm-7">
-            <h4 class="text-center alert alert-info">List Utilisateur</h4>
+            <h4 id="userTable" class="text-center alert alert-info">List Utilisateur</h4>
             <div>
-                <table class="table table-hover">
+                <table class="table table-hover" aria-describedby="userTable">
                     <thead>
                     <tr>
                         <th scope="col">Nom</th>
@@ -62,8 +56,6 @@
                     </tbody>
                 </table>
             </div>
-
-
             <!--- First name modal -->
             <div class="modal" tabindex="-1" role="dialog" id="fnameModal">
                 <div class="modal-dialog" role="document">
@@ -76,14 +68,14 @@
                             <p class="text-primary">Veuillez entrer un Nom</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="fmodalbutton">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="fmodalbutton">
+                                Close
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <!--- End of First name modal -->
-
-
             <!--- Last name modal -->
             <div class="modal" tabindex="-1" role="dialog" id="lnameModal">
                 <div class="modal-dialog" role="document">
@@ -96,40 +88,37 @@
                             <p class="text-primary">Veuillez entrer un Prenom</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="lmodalbutton">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="lmodalbutton">
+                                Close
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <!--- End of Last name modal -->
-
             <!--- email name modal -->
             <div class="modal" tabindex="-1" role="dialog" id="cnameModal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-danger">Information Requise</h5>
-
                         </div>
                         <div class="modal-body">
                             <p class="text-primary">Veuillez entrer un Email</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cmodalbutton">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cmodalbutton">
+                                Close
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <!--- End of email name modal -->
-
         </div>
         <div class="col-sm-2"></div>
-
     </div>
 </div>
-
 <script src="js/user.js"></script>
-
-
 </body>
 </html>
