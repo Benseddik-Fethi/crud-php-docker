@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#editModal').hide();
     let studentList;
 
     function getall() {
@@ -21,37 +22,39 @@ $(document).ready(function () {
     getall();
     $('#tbody').on("click", ".btn-edit", function () {
         $('#editModal').show();
+        $('#btnsave').hide();
         let index = $(this).parents("tr").index();
-        $(".edit-form #fname").val(studentList[index]["nom"]);
-        $(".edit-form #lname").val(studentList[index]["prenom"]);
-        $(".edit-form #email").val(studentList[index]["email"]);
-        $(".edit-form #sid").val(studentList[index]["id"]);
+        $(" #fname").val(studentList[index]["nom"]);
+        $(" #lname").val(studentList[index]["prenom"]);
+        $(" #email").val(studentList[index]["email"]);
+        $(" #sid").val(studentList[index]["id"]);
     });
 
 
     $(".save-student").click(function () {
-        const fname = $(".edit-form #fname").val();
-        const lname = $(".edit-form #lname").val();
-        const email = $(".edit-form #email").val();
-        const siD = $(".edit-form #sid").val();
+        const fname = $(" #fname").val();
+        const lname = $(" #lname").val();
+        const email = $(" #email").val();
+        const siD = $(" #sid").val();
         $.ajax({
             url: "http://localhost/api/update.php",
             method: "POST",
             data: {id: siD, nom: fname, prenom: lname, email: email},
             dataType: "text",
             success: function () {
+                $('form')[0].reset();
                 getall();
                 $('#editModal').hide();
+                $('#btnsave').show();
             }
         })
     });
-
-
+    
 // Close edit Modal
     $("#emodalbutton").click(function () {
         $('#editModal').hide();
+        $('#btnsave').show();
     });
-
 
 // Delete Button
     $("#tbody").on("click", ".btn-del", function () {
