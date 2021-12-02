@@ -36,24 +36,42 @@ $(document).ready(function () {
         const lname = $(" #lname").val();
         const email = $(" #email").val();
         const siD = $(" #sid").val();
-        $.ajax({
-            url: "http://localhost/api/update.php",
-            method: "POST",
-            data: {id: siD, nom: fname, prenom: lname, email: email},
-            dataType: "text",
-            success: function () {
-                $('form')[0].reset();
-                getall();
-                $('#editModal').hide();
-                $('#btnsave').show();
-            }
-        })
+        if (fname === "") {
+            $('#fnameModal').show();
+            $("#fmodalbutton").click(function () {
+                $('#fnameModal').hide();
+            });
+        } else if (lname === "") {
+            $('#lnameModal').show();
+            $("#lmodalbutton").click(function () {
+                $('#lnameModal').hide();
+            });
+        } else if (email === "") {
+            $('#cnameModal').show();
+            $("#cmodalbutton").click(function () {
+                $('#cnameModal').hide();
+            });
+        } else {
+            $.ajax({
+                url: "http://localhost/api/update.php",
+                method: "POST",
+                data: {id: siD, nom: fname, prenom: lname, email: email},
+                dataType: "text",
+                success: function () {
+                    $('form')[0].reset();
+                    getall();
+                    $('#editModal').hide();
+                    $('#btnsave').show();
+                }
+            })
+        }
     });
     
 // Close edit Modal
     $("#emodalbutton").click(function () {
         $('#editModal').hide();
         $('#btnsave').show();
+        $('form')[0].reset();
     });
 
 // Delete Button
